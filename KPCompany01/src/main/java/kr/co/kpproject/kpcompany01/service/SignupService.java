@@ -15,7 +15,7 @@ public class SignupService {
 
     public void signup(SignupDto dto) {
 
-        if (signupRepository.findByUserid(dto.getUserid()).isPresent()) {
+        if (signupRepository.findByUserId(dto.getUserid()).isPresent()) {
             throw new RuntimeException("이미 존재하는 아이디입니다.");
         }
 

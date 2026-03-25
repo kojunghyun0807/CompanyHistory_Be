@@ -12,6 +12,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @ToString
+/*
+ *   이름 : 박효빈
+ *   날짜 : 26/03/25
+ *   내용 : 유저 엔티티 생성
+ * */
 public class User {
 
     @Id
@@ -20,6 +25,9 @@ public class User {
 
     @Column(nullable = false, length = 16)
     private String username;
+
+    @Column(name = "userid", nullable = false, unique = true)
+    private String userId;
 
     @Column(nullable = false, length = 100)
     private String password;
