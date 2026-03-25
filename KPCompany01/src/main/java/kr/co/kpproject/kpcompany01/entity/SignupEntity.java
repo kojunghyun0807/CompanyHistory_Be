@@ -1,10 +1,14 @@
 package kr.co.kpproject.kpcompany01.entity;
-
+/*
+    고정현
+    회원가입 entitiy
+    26/03/25
+*/
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "`USER`")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -13,18 +17,15 @@ import lombok.*;
 public class SignupEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(length = 45)
+    private String id;   // 로그인 ID (PK)
 
-    @Column(name = "username",nullable = false)
+    @Column(nullable = false, length = 16)
     private String username;
 
-    @Column(name = "userid",unique = true, nullable = false)
-    private String userId;
-
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
     private String password;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false, unique = true, length = 255)
     private String email;
 }

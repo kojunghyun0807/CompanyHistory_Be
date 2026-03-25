@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+
+    <style>
+        * {
+          box-sizing: border-box;
+          font-family: "Pretendard", "Noto Sans KR", sans-serif;
+        }
+
+        body {
+          margin: 0;
+          background: #f1f5f9;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+
+        .container {
+          width: 400px;
+          background: white;
+          padding: 40px;
+          border-radius: 16px;
+          box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .title {
+          text-align: center;
+          font-size: 24px;
+          font-weight: bold;
+          margin-bottom: 30px;
+        }
+
+        .input-box {
+          margin-bottom: 15px;
+        }
+
+        .input-box input {
+          width: 100%;
+          padding: 12px;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          font-size: 14px;
+        }
+
+        .input-box input:focus {
+          outline: none;
+          border-color: #4f6ce9;
+        }
+
+        .button {
+          width: 100%;
+          padding: 12px;
+          background: #4f6ce9;
+          color: white;
+          border: none;
+          border-radius: 8px;
+          font-size: 16px;
+          cursor: pointer;
+          margin-top: 10px;
+        }
+
+        .button:hover {
+          background: #3a56d4;
+        }
+
+        .link {
+          text-align: center;
+          margin-top: 15px;
+          font-size: 14px;
+        }
+
+        .link a {
+          text-decoration: none;
+          color: #4f6ce9;
+        }
+
+        .error-msg {
+          color: red;
+          font-size: 13px;
+          margin-top: 10px;
+          text-align: center;
+          display: none;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="title">회원가입</div>
+
+    <div class="input-box">
+        <input type="text"     id="userid"   placeholder="아이디">
+    </div>
+    <div class="input-box">
+        <input type="password" id="password" placeholder="비밀번호">
+    </div>
+    <div class="input-box">
+        <input type="email" id="email" placeholder="이메일">
+    </div>
+    <div class="input-box">
+        <input type="text" id="name" placeholder="이름">
+    </div>
+
+    <div class="error-msg" id="errorMsg"></div>
+
+    <button class="button" onclick="signup()">가입하기</button>
+
+    <div class="link">
+        이미 계정이 있나요? <a href="login.html">로그인</a>
+    </div>
+</div>
+
+<script>
+    async function signup() {
+        const userid   = document.getElementById("username").value.trim(); // id값 재활용
+        const username = document.getElementById("name").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const email    = document.getElementById("email").value.trim();
+
+        if (!userid || !username || !password || !email) {
+          showError("모든 항목을 입력해주세요.");
+          return;
+        }
+
+        try {
+          const response = await fetch("/user/signup", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ userid, username, password, email }) // ✅ DTO 필드명과 일치
+          });
+
+          if (response.ok) {
+            alert("회원가입 성공!");
+            window.location.href = "/login.html";
+          } else {
+            const msg = await response.text();
+            showError(msg || "회원가입에 실패했습니다.");
+          }
+
+        } catch (error) {
+          showError("서버와 연결할 수 없습니다.");
+        }
+      }
+</script>
+
+</body>
+</html>

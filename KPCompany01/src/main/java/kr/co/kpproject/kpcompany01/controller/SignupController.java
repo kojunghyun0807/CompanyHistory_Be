@@ -1,5 +1,9 @@
 package kr.co.kpproject.kpcompany01.controller;
-
+/*
+    고정현
+    회원가입 controller
+    26/03/25
+*/
 import kr.co.kpproject.kpcompany01.dto.SignupDto;
 import kr.co.kpproject.kpcompany01.service.SignupService;
 import lombok.RequiredArgsConstructor;
@@ -10,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/user")
+@RequestMapping("/`USER`")
 public class SignupController {
 
     private final SignupService userService;

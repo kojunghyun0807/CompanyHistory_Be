@@ -1,10 +1,13 @@
 package kr.co.kpproject.kpcompany01.service;
-
+/*
+    고정현
+    회원가입 service
+    26/03/25
+*/
 import kr.co.kpproject.kpcompany01.dto.SignupDto;
 import kr.co.kpproject.kpcompany01.entity.SignupEntity;
 import kr.co.kpproject.kpcompany01.repository.SignupRepository;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,7 +18,11 @@ public class SignupService {
 
     public void signup(SignupDto dto) {
 
+<<<<<<< Updated upstream
         if (signupRepository.findByUserId(dto.getUserid()).isPresent()) {
+=======
+        if (signupRepository.findById(Long.valueOf(dto.getId())).isPresent()) {
+>>>>>>> Stashed changes
             throw new RuntimeException("이미 존재하는 아이디입니다.");
         }
 
@@ -23,11 +30,10 @@ public class SignupService {
             throw new RuntimeException("이미 존재하는 이메일입니다.");
         }
 
-
-        String encodedPassword = dto.getPassword();
+        String encodedPassword = dto.getPassword(); // 암호화 없이 평문 저장
 
         SignupEntity user = SignupEntity.builder()
-                .userId(dto.getUserid())
+                .id(dto.getId())
                 .username(dto.getUsername())
                 .password(encodedPassword)
                 .email(dto.getEmail())
