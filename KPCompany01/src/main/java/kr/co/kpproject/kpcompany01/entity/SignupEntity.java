@@ -23,6 +23,9 @@ public class SignupEntity {
     @Column(nullable = false, length = 16)
     private String username;
 
+    @Column(name = "userid", nullable = false, unique = true)
+    private String userId;
+
     @Column(nullable = false, length = 100)
     private String password;
 

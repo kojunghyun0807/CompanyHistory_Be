@@ -18,11 +18,9 @@ public class SignupService {
 
     public void signup(SignupDto dto) {
 
-<<<<<<< Updated upstream
-        if (signupRepository.findByUserId(dto.getUserid()).isPresent()) {
-=======
-        if (signupRepository.findById(Long.valueOf(dto.getId())).isPresent()) {
->>>>>>> Stashed changes
+
+        if (signupRepository.findByUserId(dto.getUserId()).isPresent()) {
+
             throw new RuntimeException("이미 존재하는 아이디입니다.");
         }
 
@@ -33,7 +31,7 @@ public class SignupService {
         String encodedPassword = dto.getPassword(); // 암호화 없이 평문 저장
 
         SignupEntity user = SignupEntity.builder()
-                .id(dto.getId())
+                .id(dto.getUserId())
                 .username(dto.getUsername())
                 .password(encodedPassword)
                 .email(dto.getEmail())
