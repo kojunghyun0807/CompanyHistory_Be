@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>모던 레이아웃</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+}
+
+body {
+  background: #f8fafc;
+  color: #333;
+}
+
+.container {
+  width: 1200px;
+  margin: 30px auto;
+}
+
+/* 헤더 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo a {
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+/* 로그아웃 버튼 */
+.right-box a {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #dadaf1;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.right-box a:hover {
+  background: #4f6ce9;
+}
+
+/* 메인 */
+.main {
+  display: flex;
+  gap: 20px;
+}
+
+/* 사이드바 */
+.sidebar {
+  width: 220px;
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+/* 이미지 버튼 */
+.sidebar a {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.sidebar img {
+  width: 100%;
+  height: 60px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 12px;
+}
+
+/* hover 효과 */
+.sidebar img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+/* 콘텐츠 */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 카드 */
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* 타이틀 */
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* 설명 */
+.description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+  <!-- 헤더 -->
+  <div class="header">
+    <div class="logo">
+      <a href="main.html">기업자서전</a>
+    </div>
+
+    <div class="right-box">
+      <a href="login.html">로그아웃</a>
+    </div>
+  </div>
+
+  <!-- 메인 -->
+  <div class="main">
+
+    <!-- 사이드바 -->
+    <div class="sidebar">
+      <ul>
+        <li><a href="samsung.html"><img src="images/samsung.png" alt="삼성"></a></li>
+        <li><a href="hyundai.html"><img src="images/hyundai.png" alt="현대"></a></li>
+        <li><a href="sk.html"><img src="images/sk.png" alt="SK"></a></li>
+        <li><a href="lg.html"><img src="images/lg.png" alt="LG"></a></li>
+        <li><a href="lotte.html"><img src="images/lotte.png" alt="롯데"></a></li>
+        <li><a href="posco.html"><img src="images/posco.png" alt="포스코"></a></li>
+        <li><a href="hanwha.html"><img src="images/hanwha.png" alt="한화"></a></li>
+        <li><a href="shinsegae.html"><img src="images/shinsegae.png" alt="신세계"></a></li>
+        <li><a href="kakao.html"><img src="images/kakao.png" alt="카카오"></a></li>
+        <li><a href="naver.html"><img src="images/naver.png" alt="네이버"></a></li>
+      </ul>
+    </div>
+
+    <!-- 콘텐츠 -->
+    <div class="content">
+      <div class="card">
+        <div class="title">현대</div>
+        <div class="description">
+          기업은 단순한 이익 창출의 주체를 넘어, 시대의 흐름과 함께 성장해온 하나의 이야기입니다.<br><br>
+          ‘기업자서전’은 각 기업이 걸어온 발자취와 그 안에 담긴 가치, 도전, 그리고 성장을 기록하고 공유하기 위해 만들어진 공간입니다.<br><br>
+          우리는 기업의 시작부터 현재까지의 여정을 한눈에 볼 수 있도록 정리하고, 그 과정 속에서 얻은 경험과 철학을 보다 쉽게 전달하고자 합니다.<br><br>
+          이를 통해 방문자 여러분께서는 기업의 본질과 방향성을 깊이 이해하실 수 있을 것입니다.<br><br>
+          앞으로도 ‘기업자서전’은 다양한 기업들의 이야기를 체계적으로 담아내며,<br><br>
+          신뢰할 수 있는 정보와 의미 있는 콘텐츠를 제공하기 위해 노력하겠습니다.<br><br>
+          감사합니다.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

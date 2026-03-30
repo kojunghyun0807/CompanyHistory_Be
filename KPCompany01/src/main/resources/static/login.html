@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>로그인</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f1f5f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 400px;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.input-box {
+  margin-bottom: 15px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.input-box input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.button {
+  width: 100%;
+  padding: 12px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.button:hover {
+  background: #2563eb;
+}
+
+.link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.link a {
+  text-decoration: none;
+  color: #3b82f6;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="title">로그인</div>
+
+  <div class="input-box">
+    <input type="text" placeholder="아이디">
+  </div>
+
+  <div class="input-box">
+    <input type="password" placeholder="비밀번호">
+  </div>
+
+  <button class="button">로그인</button>
+
+  <div class="link">
+    계정이 없나요? <a href="signup.html">회원가입</a>
+  </div>
+</div>
+
+</body>
+</html>
